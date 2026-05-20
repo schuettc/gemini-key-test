@@ -13,8 +13,8 @@ jobs:
         env:
           GEMINI_CLI_TRUST_WORKSPACE: 'true'
         with:
-          # Using Flash for a quick, cheap test
-          gemini_model: 'gemini-1.5-flash-latest'
+          # Using Pro for a more reliable test
+          gemini_model: 'gemini-1.5-pro'
           gemini_api_key: ${{ secrets.GOOGLE_API_KEY }}
           prompt: "Please respond with 'API Key is working correctly' if you can read this."
 
