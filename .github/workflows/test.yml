@@ -1,0 +1,22 @@
+name: Gemini API Key Test
+
+on:
+  workflow_dispatch: # Allows manual triggering from the Actions tab
+
+jobs:
+  test-key:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gemini Connection Test
+        id: gemini
+        uses: google-github-actions/run-gemini-cli@v0
+        with:
+          # Using Flash for a quick, cheap test
+          gemini_model: 'gemini-1.5-flash'
+          gemini_api_key: ${{ secrets.GOOGLE_API_KEY }}
+          prompt: "Please respond with 'API Key is working correctly' if you can read this."
+
+      - name: Verify Output
+        run: |
+          echo "Gemini responded with:"
+          echo "${{ steps.gemini.outputs.summary }}"
