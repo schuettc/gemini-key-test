@@ -7,6 +7,12 @@ jobs:
   test-key:
     runs-on: ubuntu-latest
     steps:
+      - name: List Available Models
+        env:
+          GEMINI_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        run: |
+          curl "https://generativelanguage.googleapis.com/v1beta/models?key=${GEMINI_API_KEY}"
+
       - name: Gemini Connection Test
         id: gemini
         uses: google-github-actions/run-gemini-cli@v0
