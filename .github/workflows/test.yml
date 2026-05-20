@@ -10,6 +10,8 @@ jobs:
       - name: Gemini Connection Test
         id: gemini
         uses: google-github-actions/run-gemini-cli@v0
+        env:
+          GEMINI_CLI_TRUST_WORKSPACE: 'true'
         with:
           # Using Flash for a quick, cheap test
           gemini_model: 'gemini-1.5-flash'
